@@ -444,9 +444,9 @@ Also you have to add following to `/etc/openhab/misc/exec.whitelist`:
 /usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py deactivateFullscreenMode"
 /usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py createSnapshot"
 /usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py startStopRecording"
+```
 
 You have to replace `<user>` and `<password>` with the username and password of your remote computer. Also you have to replace `<ip>` with the ip address of your remote computer.
-```
 
 ## Sitemaps
 
