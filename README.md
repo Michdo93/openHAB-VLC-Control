@@ -110,4 +110,343 @@ Switch VLC_Control_StartStopRecording "Start/stop recording" (VLC_Control)
 
 ## Rules
 
+In the next step you have to add following rules:
+
+```
+rule "VLC_Control_PlayPause changed to ON"
+when
+    Item VLC_Control_PlayPause changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py playPause"')
+    }
+    VLC_Control_PlayPause.postUpdate(OFF)
+end
+
+rule "VLC_Control_5MinutesForward changed to ON"
+when
+    Item VLC_Control_5MinutesForward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fiveMinutesForward"')
+    }
+    VLC_Control_5MinutesForward.postUpdate(OFF)
+end
+
+rule "VLC_Control_5MinutesBackward changed to ON"
+when
+    Item VLC_Control_5MinutesBackward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fiveMinutesBackward"')
+    }
+    VLC_Control_5MinutesBackward.postUpdate(OFF)
+end
+
+rule "VLC_Control_1MinuteForward changed to ON"
+when
+    Item VLC_Control_1MinuteForward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py oneMinuteForward"')
+    }
+    VLC_Control_1MinuteForward.postUpdate(OFF)
+end
+
+rule "VLC_Control_1MinutesBackward changed to ON"
+when
+    Item VLC_Control_1MinutesBackward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py oneMinuteBackward"')
+    }
+    VLC_Control_1MinutesBackward.postUpdate(OFF)
+end
+
+rule "VLC_Control_10SecondsForward changed to ON"
+when
+    Item VLC_Control_10SecondsForward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py tenSecondsForward"')
+    }
+    VLC_Control_10SecondsForward.postUpdate(OFF)
+end
+
+rule "VLC_Control_10SecondsBackward changed to ON"
+when
+    Item VLC_Control_10SecondsBackward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py tenSecondsBackward"')
+    }
+    VLC_Control_10SecondsBackward.postUpdate(OFF)
+end
+
+rule "VLC_Control_3SecondsForward changed to ON"
+when
+    Item VLC_Control_3SecondsForward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py threeSecondsForward"')
+    }
+    VLC_Control_3SecondsForward.postUpdate(OFF)
+end
+
+rule "VLC_Control_3SecondsBackward changed to ON"
+when
+    Item VLC_Control_3SecondsBackward changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py threeSecondsBackward"')
+    }
+    VLC_Control_3SecondsBackward.postUpdate(OFF)
+end
+
+rule "VLC_Control_Stop changed to ON"
+when
+    Item VLC_Control_Stop changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py stop"')
+    }
+    VLC_Control_Stop.postUpdate(OFF)
+end
+
+rule "VLC_Control_Faster changed to ON"
+when
+    Item VLC_Control_Faster changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py faster"')
+    }
+    VLC_Control_Faster.postUpdate(OFF)
+end
+
+rule "VLC_Control_Slower changed to ON"
+when
+    Item VLC_Control_Slower changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py slower"')
+    }
+    VLC_Control_Slower.postUpdate(OFF)
+end
+
+rule "VLC_Control_NormalSpeed changed to ON"
+when
+    Item VLC_Control_NormalSpeed changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py normalSpeed"')
+    }
+    VLC_Control_NormalSpeed.postUpdate(OFF)
+end
+
+rule "VLC_Control_NextTrack changed to ON"
+when
+    Item VLC_Control_NextTrack changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py nextTrack"')
+    }
+    VLC_Control_NextTrack.postUpdate(OFF)
+end
+
+rule "VLC_Control_PreviousTrack changed to ON"
+when
+    Item VLC_Control_PreviousTrack changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py previousTrack"')
+    }
+    VLC_Control_PreviousTrack.postUpdate(OFF)
+end
+
+rule "VLC_Control_ShowCurrentPostionTime changed to ON"
+when
+    Item VLC_Control_ShowCurrentPostionTime changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py showCurrentPositionTime"')
+    }
+    VLC_Control_ShowCurrentPostionTime.postUpdate(OFF)
+end
+
+rule "VLC_Control_ChangeLoopOption changed to ON"
+when
+    Item VLC_Control_ChangeLoopOption changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py changeLoopOption"')
+    }
+    VLC_Control_ChangeLoopOption.postUpdate(OFF)
+end
+
+rule "VLC_Control_NextFrame changed to ON"
+when
+    Item VLC_Control_NextFrame changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py nextFrame"')
+    }
+    VLC_Control_NextFrame.postUpdate(OFF)
+end
+
+rule "VLC_Control_Louder changed to ON"
+when
+    Item VLC_Control_Louder changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fivePercentLouder"')
+    }
+    VLC_Control_Louder.postUpdate(OFF)
+end
+
+rule "VLC_Control_Quieter changed to ON"
+when
+    Item VLC_Control_Quieter changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fivePercentQuieter"')
+    }
+    VLC_Control_Quieter.postUpdate(OFF)
+end
+
+rule "VLC_Control_Mute changed to ON"
+when
+    Item VLC_Control_Mute changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py mute"')
+    }
+    VLC_Control_Mute.postUpdate(OFF)
+end
+
+rule "VLC_Control_ToggleFullscreen changed to ON"
+when
+    Item VLC_Control_ToggleFullscreen changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py enableDisableFullscreen"')
+    }
+    VLC_Control_ToggleFullscreen.postUpdate(OFF)
+end
+
+rule "VLC_Control_DeactivateFullscreen changed to ON"
+when
+    Item VLC_Control_DeactivateFullscreen changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py deactivateFullscreenMode"')
+    }
+    VLC_Control_DeactivateFullscreen.postUpdate(OFF)
+end
+
+rule "VLC_Control_CreateSnapshot changed to ON"
+when
+    Item VLC_Control_CreateSnapshot changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py createSnapshot"')
+    }
+    VLC_Control_CreateSnapshot.postUpdate(OFF)
+end
+
+rule "VLC_Control_StartStopRecording changed to ON"
+when
+    Item VLC_Control_StartStopRecording changed to ON
+then
+    response = executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"')
+
+    if (response > 0) {
+        executeCommandLine('/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py startStopRecording"')
+    }
+    VLC_Control_StartStopRecording.postUpdate(OFF)
+end
+```
+
+Also you have to add following to `/etc/openhab/misc/exec.whitelist`:
+
+```
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/bin/ps aux | /bin/grep [v]lc | /usr/bin/wc -l"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py %2$s"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py playPause"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fiveMinutesForward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fiveMinutesBackward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py oneMinuteForward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py oneMinuteBackward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py tenSecondsForward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py tenSecondsBackward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py threeSecondsForward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py threeSecondsBackward"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py stop"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py faster"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py slower"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py normalSpeed"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py nextTrack"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py previousTrack"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py showCurrentPositionTime"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py changeLoopOption"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py nextFrame"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fivePercentLouder"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py fivePercentQuieter"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py mute"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py enableDisableFullscreen"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py deactivateFullscreenMode"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py createSnapshot"
+/usr/bin/sshpass -p <password> /usr/bin/ssh -t -o StrictHostKeyChecking=no <user>@<ip> "/usr/bin/python3 vlc_control.py startStopRecording"
+
+You have to replace `<user>` and `<password>` with the username and password of your remote computer. Also you have to replace `<ip>` with the ip address of your remote computer.
+```
+
 ## Sitemaps
+
