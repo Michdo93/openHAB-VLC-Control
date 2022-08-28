@@ -73,3 +73,41 @@ By pressing one of the following keys VLC will do the following action. With thi
 | <kbd>Shift</kbd> + <kbd>R</kbd> | `startStopRecording()` | Start/stop recording |
 
 You can call as example the `playPause()` function by running `python3 vlc_control.py playPause`. So at least by calling the functions you have to omit `()`.
+
+## Items
+
+You have to create following items:
+
+```
+Group VLC_Control "VLC Control" <screen>
+
+Switch VLC_Control_PlayPause "Play/Pause" (VLC_Control)
+Switch VLC_Control_5MinutesForward "5 Minutes Forward" (VLC_Control)
+Switch VLC_Control_5MinutesBackward "5 Minutes Backward" (VLC_Control)
+Switch VLC_Control_1MinuteForward "1 Minute Forward" (VLC_Control)
+Switch VLC_Control_1MinutesBackward "1 Minutes Backward" (VLC_Control)
+Switch VLC_Control_10SecondsForward "10 Seconds Forward" (VLC_Control)
+Switch VLC_Control_10SecondsBackward "10 Seconds Backward" (VLC_Control)
+Switch VLC_Control_3SecondsForward "3 Seconds Forward" (VLC_Control)
+Switch VLC_Control_3SecondsBackward "3 Seconds Backward" (VLC_Control)
+Switch VLC_Control_Stop "Stop" (VLC_Control)
+Switch VLC_Control_Faster "Faster" (VLC_Control)
+Switch VLC_Control_Slower "Slower" (VLC_Control)
+Switch VLC_Control_NormalSpeed "Normal speed" (VLC_Control)
+Switch VLC_Control_NextTrack "Next track" (VLC_Control)
+Switch VLC_Control_PreviousTrack "Previous track" (VLC_Control)
+Switch VLC_Control_ShowCurrentPostionTime "Fade in Postion/Time" (VLC_Control)
+Switch VLC_Control_ChangeLoopOption "Change loop option" (VLC_Control)
+Switch VLC_Control_NextFrame "Next frame" (VLC_Control)
+Switch VLC_Control_Louder "Louder" (VLC_Control)
+Switch VLC_Control_Quieter "Quieter" (VLC_Control)
+Switch VLC_Control_Mute "Mute" (VLC_Control)
+Switch VLC_Control_ToggleFullscreen "Toggle fullscreen" (VLC_Control)
+Switch VLC_Control_DeactivateFullscreen "Deactivate fullscreen" (VLC_Control)
+Switch VLC_Control_CreateSnapshot "Create snapshot" (VLC_Control)
+Switch VLC_Control_StartStopRecording "Start/stop recording" (VLC_Control)
+```
+
+## Rules
+
+## Sitemaps
