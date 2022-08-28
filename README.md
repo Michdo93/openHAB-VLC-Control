@@ -110,7 +110,7 @@ Switch VLC_Control_StartStopRecording "Start/stop recording" (VLC_Control)
 
 ## Rules
 
-In the next step you have to add following rules:
+In the next step you have to add following rules. One important thing is that the `Switch` items will receive an post update to `OFF`. This is needed so that one of the buttons created later for the sitemap, can be clicked again and again. One would like to switch louder or fast forward several times in succession or increase the speed, etc. In addition, you toggle the play/pause or other input options back and forth.
 
 ```
 rule "VLC_Control_PlayPause changed to ON"
