@@ -28,7 +28,7 @@ Then you have to download the `vlc_control.py` file and place it to a path where
 ```
 cd /home/<user>
 wget https://raw.githubusercontent.com/Michdo93/openHAB-VLC-Control/main/vlc_control.py
-sudo chmod +x room
+sudo chmod +x vlc_control.py
 ```
 
 On Windows:
