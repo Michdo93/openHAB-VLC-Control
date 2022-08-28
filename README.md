@@ -450,3 +450,34 @@ You have to replace `<user>` and `<password>` with the username and password of 
 
 ## Sitemaps
 
+At least you have to add following to your sitemap:
+
+```
+Text label="VLC Control" icon="screen" {
+    Switch item=VLC_Control_PlayPause label="Play/Pause" icon="exec_restart" mappings=[ON="Play/Pause"]
+    Switch item=VLC_Control_5MinutesForward label="5 Minutes Forward" icon="exec_restart" mappings=[ON=">> 5 min"]
+    Switch item=VLC_Control_5MinutesBackward label="5 Minutes Backward" icon="exec_restart" mappings=[ON="<< 5 min"]
+    Switch item=VLC_Control_1MinuteForward label="1 Minute Forward" icon="exec_restart" mappings=[ON=">> 1 min"]
+    Switch item=VLC_Control_1MinutesBackward label="1 Minutes Backward" icon="exec_restart" mappings=[ON="<< 1 min"]
+    Switch item=VLC_Control_10SecondsForward label="10 Seconds Forward" icon="exec_restart" mappings=[ON=">> 10 sec"]
+    Switch item=VLC_Control_10SecondsBackward label="10 Seconds Backward" icon="exec_restart" mappings=[ON="<< 10 sec"]
+    Switch item=VLC_Control_3SecondsForward label="3 Seconds Forward" icon="exec_restart" mappings=[ON=">> 3 sec"]
+    Switch item=VLC_Control_3SecondsBackward label="3 Seconds Backward" icon="exec_restart" mappings=[ON="<< 3 sec"]
+    Switch item=VLC_Control_Stop label="Stop" icon="exec_restart" mappings=[ON="Stop"]
+    Switch item=VLC_Control_Faster label="Faster" icon="exec_restart" mappings=[ON="faster"]
+    Switch item=VLC_Control_Slower label="Slower" icon="exec_restart" mappings=[ON="slower"]
+    Switch item=VLC_Control_NormalSpeed label="Normal speed" icon="exec_restart" mappings=[ON="normal speed"]
+    Switch item=VLC_Control_NextTrack label="Next track" icon="exec_restart" mappings=[ON=">>|"]
+    Switch item=VLC_Control_PreviousTrack label="Previous track" icon="exec_restart" mappings=[ON="|<<"]
+    Switch item=VLC_Control_ShowCurrentPostionTime label="Fade in Postion/Time" icon="exec_restart" mappings=[ON="Fade in postion/time"]
+    Switch item=VLC_Control_ChangeLoopOption label="Change loop option" icon="exec_restart" mappings=[ON="Change loop option"]
+    Switch item=VLC_Control_NextFrame label="Next frame" icon="exec_restart" mappings=[ON="Next Frame"]
+    Switch item=VLC_Control_Louder label="Louder" icon="exec_restart" mappings=[ON="Vol +"]
+    Switch item=VLC_Control_Quieter label="Quieter" icon="exec_restart" mappings=[ON="Vol -"]
+    Switch item=VLC_Control_Mute label="Mute" icon="exec_restart" mappings=[ON="Mute"]
+    Switch item=VLC_Control_ToggleFullscreen label="Toggle fullscreen" icon="exec_restart" mappings=[ON="Toggle Fullscreen"]
+    Switch item=VLC_Control_DeactivateFullscreen label="Deactivate fullscreen" icon="exec_restart" mappings=[ON="Escape Fullscreen"]
+    Switch item=VLC_Control_CreateSnapshot label="Create snapshot" icon="exec_restart" mappings=[ON="Snapshot"]
+    Switch item=VLC_Control_StartStopRecording label="Start/stop recording" icon="exec_restart" mappings=[ON="Start/stop recording"]
+}
+```
