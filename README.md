@@ -45,6 +45,7 @@ The paths `/home/<user>` or `C:\Users\<user>` are the default paths which are op
 By pressing one of the following keys VLC will do the following action. With this the `vlc_control.py` `pyautogui` will press this keys for you. So the [Exec Action](https://www.openhab.org/docs/configuration/actions.html#exec-actions) can be used that `pyautogui` will press the keys for you while VLC is running.
 
 | Key Combination | Function | Description |
+| :-------------: |:-------------:| :-----:|
 | <kbd>Space</kbd> | `playPause()` | Play/Pause |
 | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>→</kbd> | `fiveMinutesForward()` | 5 minutes forward |
 | <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd> | `fiveMinutesBackward()` | 5 minutes backward |
