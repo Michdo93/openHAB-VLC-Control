@@ -1,133 +1,111 @@
-import keyboard
+import pyautogui
 import os
 import sys
-import pygetwindow as gw
 
-keyboard.unhook_all()
+pyautogui.FAILSAFE = False
 
 def focus_vlc():
-    try:
-        window = gw.getWindowsWithTitle("VLC media player")[0]  # Anpassen des Fenstertitels, falls erforderlich
-        if window.isMinimized:
-            window.restore()
-        window.activate()
-        return True
-    except IndexError:
-        print("Das VLC-Fenster wurde nicht gefunden.")
-        return False
+    pyautogui.click(x=100, y=100, clicks=1, button="left")
 
 def playPause():
     focus_vlc()
-    keyboard.press("space")
-    keyboard.release("space")
+    pyautogui.press("space")
 
 def fiveMinutesForward():
     focus_vlc()
-    keyboard.press_and_release("ctrl + alt + right")
+    pyautogui.hotkey("ctrl", "alt", "right")
 
 def fiveMinutesBackward():
     focus_vlc()
-    keyboard.press_and_release("ctrl + alt + left")
+    pyautogui.hotkey("ctrl", "alt", "left")
 
 def oneMinuteForward():
     focus_vlc()
-    keyboard.press_and_release("ctrl + right")
+    pyautogui.hotkey("ctrl", "right")
 
 def oneMinuteBackward():
     focus_vlc()
-    keyboard.press_and_release("ctrl + left")
+    pyautogui.hotkey("ctrl", "left")
 
 def tenSecondsForward():
     focus_vlc()
-    keyboard.press_and_release("alt + right")
+    pyautogui.hotkey("alt", "right")
 
 def tenSecondsBackward():
     focus_vlc()
-    keyboard.press_and_release("alt + left")
+    pyautogui.hotkey("alt", "left")
 
 def threeSecondsForward():
     focus_vlc()
-    keyboard.press_and_release("shift + right")
+    pyautogui.hotkey("shift", "right")
 
 def threeSecondsBackward():
     focus_vlc()
-    keyboard.press_and_release("shift + left")
+    pyautogui.hotkey("shift", "left")
 
 def stop():
     focus_vlc()
-    keyboard.press("s")
-    keyboard.release("s")
+    pyautogui.press("s")
 
 def faster():
     focus_vlc()
-    keyboard.press("+")
-    keyboard.release("+")
+    pyautogui.press("+")
 
 def slower():
     focus_vlc()
-    keyboard.press("-")
-    keyboard.release("-")
+    pyautogui.press("-")
 
 def normalSpeed():
     focus_vlc()
-    keyboard.press("=")
-    keyboard.release("=")
+    pyautogui.press("=")
 
 def nextTrack():
     focus_vlc()
-    keyboard.press("n")
-    keyboard.release("n")
+    pyautogui.press("n")
 
 def previousTrack():
     focus_vlc()
-    keyboard.press("p")
-    keyboard.release("p")
+    pyautogui.press("p")
 
 def showCurrentPostionTime():
     focus_vlc()
-    keyboard.press("t")
-    keyboard.release("t")
+    pyautogui.press("t")
 
 def changeLoopOption():
     focus_vlc()
-    keyboard.press("l")
-    keyboard.release("l")
+    pyautogui.press("l")
 
 def nextFrame():
     focus_vlc()
-    keyboard.press("e")
-    keyboard.release("e")
+    pyautogui.press("e")
 
 def fivePercentLouder():
     focus_vlc()
-    keyboard.press_and_release("ctrl + up")
+    pyautogui.hotkey("ctrl", "up")
 
 def fivePercentQuieter():
     focus_vlc()
-    keyboard.press_and_release("ctrl + down")
+    pyautogui.hotkey("ctrl", "down")
 
 def mute():
     focus_vlc()
-    keyboard.press("m")
-    keyboard.release("m")
+    pyautogui.press("m")
 
 def enableDisableFullscreen():
     focus_vlc()
-    keyboard.press("f")
-    keyboard.release("f")
+    pyautogui.press("f")
 
 def deactivateFullscreenMode():
     focus_vlc()
-    keyboard.press("esc")
-    keyboard.release("esc")
+    pyautogui.press("esc")
 
 def createSnapshot():
     focus_vlc()
-    keyboard.press_and_release("shift + s")
+    pyautogui.hotkey("shift", "s")
 
 def startStopRecording():
     focus_vlc()
-    keyboard.press_and_release("shift + r")
+    pyautogui.hotkey("shift", "r")
 
 if __name__ == '__main__':
     globals()[sys.argv[1]]()
