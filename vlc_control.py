@@ -1,83 +1,96 @@
-import pyautogui
+import keyboard
 import os
 import sys
 
-pyautogui.FAILSAFE = False
+keyboard.unhook_all()
 
 def playPause():
-    pyautogui.press("space")
+    keyboard.press("space")
+    keyboard.release("space")
 
 def fiveMinutesForward():
-    pyautogui.hotkey("ctrl", "alt", "right")
+    keyboard.press_and_release("ctrl + alt + right")
 
 def fiveMinutesBackward():
-    pyautogui.hotkey("ctrl", "alt", "left")
+    keyboard.press_and_release("ctrl + alt + left")
 
 def oneMinuteForward():
-    pyautogui.hotkey("ctrl", "right")
+    keyboard.press_and_release("ctrl + right")
 
 def oneMinuteBackward():
-    pyautogui.hotkey("ctrl", "left")
+    keyboard.press_and_release("ctrl + left")
 
 def tenSecondsForward():
-    pyautogui.hotkey("alt", "right")
+    keyboard.press_and_release("alt + right")
 
 def tenSecondsBackward():
-    pyautogui.hotkey("alt", "left")
+    keyboard.press_and_release("alt + left")
 
 def threeSecondsForward():
-    pyautogui.hotkey("shift", "right")
+    keyboard.press_and_release("shift + right")
 
 def threeSecondsBackward():
-    pyautogui.hotkey("shift", "left")
+    keyboard.press_and_release("shift + left")
 
 def stop():
-    pyautogui.press("s")
+    keyboard.press("s")
+    keyboard.release("s")
 
 def faster():
-    pyautogui.press("+")
+    keyboard.press("+")
+    keyboard.release("+")
 
 def slower():
-    pyautogui.press("-")
+    keyboard.press("-")
+    keyboard.release("-")
 
 def normalSpeed():
-    pyautogui.press("=")
+    keyboard.press("=")
+    keyboard.release("=")
 
 def nextTrack():
-    pyautogui.press("n")
+    keyboard.press("n")
+    keyboard.release("n")
 
 def previousTrack():
-    pyautogui.press("p")
+    keyboard.press("p")
+    keyboard.release("p")
 
 def showCurrentPostionTime():
-    pyautogui.press("t")
+    keyboard.press("t")
+    keyboard.release("t")
 
 def changeLoopOption():
-    pyautogui.press("l")
+    keyboard.press("l")
+    keyboard.release("l")
 
 def nextFrame():
-    pyautogui.press("e")
+    keyboard.press("e")
+    keyboard.release("e")
 
 def fivePercentLouder():
-    pyautogui.hotkey("ctrl", "up")
+    keyboard.press_and_release("ctrl + up")
 
 def fivePercentQuieter():
-    pyautogui.hotkey("ctrl", "down")
+    keyboard.press_and_release("ctrl + down")
 
 def mute():
-    pyautogui.press("m")
+    keyboard.press("m")
+    keyboard.release("m")
 
 def enableDisableFullscreen():
-    pyautogui.press("f")
+    keyboard.press("f")
+    keyboard.release("f")
 
 def deactivateFullscreenMode():
-    pyautogui.press("esc")
+    keyboard.press("esc")
+    keyboard.release("esc")
 
 def createSnapshot():
-    pyautogui.hotkey("shift", "s")
+    keyboard.press_and_release("shift + s")
 
 def startStopRecording():
-    pyautogui.hotkey("shift", "r")
+    keyboard.press_and_release("shift + r")
 
 if __name__ == '__main__':
     globals()[sys.argv[1]]()
